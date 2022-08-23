@@ -1,8 +1,17 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+// import "../styles/globals.css";
+import type { AppProps } from "next/app";
+import { RecoilRoot } from "recoil";
+import { ThemeProvider } from "@mui/system";
+import { themeOne } from "../styles/themes/themeOne";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <RecoilRoot>
+      <ThemeProvider theme={themeOne}>
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </RecoilRoot>
+  );
 }
 
-export default MyApp
+export default MyApp;
